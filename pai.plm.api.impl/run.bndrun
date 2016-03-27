@@ -1,0 +1,23 @@
+-runfw: org.apache.felix.framework;version=4
+-runee: JavaSE-1.8
+-runsystemcapabilities: ${native_capability}
+
+-resolve.effective: active;skip:="osgi.service"
+
+-runbundles: \
+	org.apache.felix.gogo.command;version='[0.14.0,0.14.1)',\
+	org.apache.felix.gogo.runtime;version='[0.16.2,0.16.3)',\
+	org.apache.felix.gogo.shell;version='[0.10.0,0.10.1)',\
+	org.apache.felix.scr;version='[2.0.0,2.0.1)',\
+	osgi.cmpn;version='[5.0.0,5.0.1)',\
+	pai.plm.api;version=snapshot,\
+	pai.plm.api.impl.message;version=snapshot,\
+	pai.plm.api.impl.msgcmd;version=snapshot
+
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(osgi.identity=pai.plm.api.impl.message)',\
+	osgi.identity;filter:='(osgi.identity=osgi.cmpn)',\
+	osgi.identity;filter:='(osgi.identity=pai.plm.api.impl.msgcmd)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.runtime)'
